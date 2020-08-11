@@ -281,15 +281,6 @@ if let _ = someOptional {
 }
 ```
 
-```swift
-// PREFERRED
-weak var parentViewController: UIViewController?
-
-// NOT PREFERRED
-weak var parentViewController: UIViewController!
-unowned var parentViewController: UIViewController
-```
-
 Don't use `unowned`. You can think of `unowned` as somewhat of an equivalent of a `weak` property that is implicitly unwrapped (though unowned has slight performance improvements on account of completely ignoring reference counting). Since we don't ever want to have implicit unwraps, we similarly don't want `unowned` properties.
 
 ```swift
