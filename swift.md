@@ -574,6 +574,22 @@ extention MyModel: SomeProtocol {
 
 For class protocols, use `: AnyObject` instead of `: class`. The latter is popular, but it's not supposed to be used.
 
+## Functions With an Implicit Return
+
+If the entire body of the function is a single expression, the function implicitly returns that expression. But prefer to use the explicit return.
+
+```swift 
+// PREFERRED
+func anotherGreeting(for person: String) -> String {
+    return "Hello, " + person + "!"
+}
+
+// NOT PREFERRED
+func greeting(for person: String) -> String {
+    "Hello, " + person + "!"
+}
+```
+
 ## Unused Code
 
 Unused (dead) code should be removed. Don't worry about losing stuff, that's what Git is for :smile:
