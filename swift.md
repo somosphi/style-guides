@@ -183,6 +183,8 @@ public protocol AssetProtocol {
 }
 
 public enum Asset: String, AssetProtocol {
+    case logo
+
     enum Close: String, AssetProtocol {
         case closeRounded
         case simpleClose
@@ -192,7 +194,7 @@ public enum Asset: String, AssetProtocol {
         }
 
         public var image: UIImage? {
-            return UIImage(named: self.rawValue, in: AssetKit.getBundle(), compatibleWith: nil)
+            return UIImage(named: self.rawValue, in: Bundle.module, compatibleWith: nil)
         }
     }
 
@@ -201,7 +203,7 @@ public enum Asset: String, AssetProtocol {
     }
 
     public var image: UIImage? {
-        return UIImage(named: self.rawValue, in: AssetKit.getBundle(), compatibleWith: nil)
+        return UIImage(named: self.rawValue, in: Bundle.module, compatibleWith: nil)
     }
 }
 ```
