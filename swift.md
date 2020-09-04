@@ -587,7 +587,7 @@ extention MyModel: SomeProtocol {
 
 For class protocols, use `: AnyObject` instead of `: class`. The latter is popular, but it's not supposed to be used.
 
-## Functions With an Implicit Return
+## Functions with an implicit return
 
 If the entire body of the function is a single expression, the function implicitly returns that expression. But prefer to use the explicit return.
 
