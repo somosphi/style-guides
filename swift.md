@@ -213,20 +213,20 @@ public enum Asset: String, AssetProtocol {
 Import assets of icons such as `.pdf` vector, Make sure **Devices** is checked with `Universal` and **Scales** is marked as `Single scale`
 
 
-### i18n Enum
+### I18n Enum
 
 ```swift
-protocol i18nProtocol {
+protocol I18nProtocol {
     var text: String { get }
 
     func text(with complement: String...) -> String
 }
 
-enum i18n {
+class I18n {
 
     // MARK: - General
 
-    enum General: String, i18nProtocol {
+    enum General: String, I18nProtocol {
         case yes
         case no
         case ok
@@ -249,7 +249,7 @@ enum i18n {
 * Usage
 
 ```swift
-let message = i18n.General.questionSignOut.text
+let message = I18n.General.questionSignOut.text
 ```
 ```
 "GREETING"="Hello %@. Lorem ipsum";
@@ -259,9 +259,20 @@ let message = i18n.General.questionSignOut.text
 > When you need to use string replacement use the `%@` wildcard in the string file. and implement as an example:
 
 ```swift
-let message = i18n.General.greeting.text(with: "John Doe")
+let message = I18n.General.greeting.text(with: "John Doe")
 ```
 
+## Instantiate 
+
+> To avoid new coding standards we don't use the .init () shortcut to instantiate any class. Prefer to use the instance with the class name making the reading more descriptive.
+
+```swift
+// PREFERRED
+let myClassInstance = Myclass()
+
+// NOT PREFERRED
+let myClassInstance: Myclass = .init()
+```
 
 ## Optionals
 
