@@ -105,12 +105,6 @@ private func setupBarCode() {
                          pasteboardValue: viewModel.bankSlipCashIn.bankSlip.typeableLine,
                          copiedTitle: I18n.General.copiedCode.text)
 }
-
-
-```swift
-
-
-
 ```
 
 -----
