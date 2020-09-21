@@ -42,12 +42,63 @@ The views on the project should follow the following structure:
 
 The initial setup of a view should happen inside a `setup()` method called inside the `UIView`'s init.
 
+For a better organization and reduction of size of methods following the linter pattern of a maximum of `40 lines`, whenever a type of setup contexts has more than 2 calls, separate setup methods for each type of context example:
+
 ```swift
+// MARK: - Initialization
+
 override init(frame: CGRect) {}
     super.init(frame: frame)
-
-    setup()
 }
+
+// MARK: - Life Cycle
+
+override func viewDidLoad() {
+	super.viewDidLoad()
+	
+	setup()
+}
+
+// MARK: - Functions
+
+private func setup() {
+    setupSuccessCashView()
+	
+    addViews([successCashView,
+              descriptionLabel,
+              barcodeLabel,
+              copyButton])
+
+    setupBarCode()
+}
+
+private func setupSuccessCashView() {
+    let primaryText = NSMutableAttributedString()
+        .normal("\(I18n.General.value.text): ", fontSize: 16)
+        .bold(viewModel.getBilletValueFormatted(), fontSize: 16)
+
+    let secondaryText = NSMutableAttributedString()
+        .normal("\(I18n.General.dueDate.text): ", fontSize: 16)
+        .bold(viewModel.getBilletDueDateFormatted(), fontSize: 16)
+
+    successCashView.configure(title: I18n.CashInBillet.billetSuccessTitle.text,
+                              primaryLineText: primaryText,
+                              secondaryLineText: secondaryText)
+}
+
+private func setupBarCode() {
+    barcodeLabel.text = viewModel.getBarCodeFormatted()
+
+    copyButton.configure(title: I18n.General.copyCode.text,
+                         pasteboardValue: viewModel.bankSlipCashIn.bankSlip.typeableLine,
+                         copiedTitle: I18n.General.copiedCode.text)
+}
+
+
+```swift
+
+
+
 ```
 
 -----
@@ -102,10 +153,12 @@ public final class TitleAndDescriptionInfoView: UIView {
 
         return titleLabel
     }()
+    
     // descriptionLabel: PhiUILabel
     private let descriptionLabel = PhiUILabel(text: "")
 
     // MARK: - Initialization
+    
     ///Create a stack with optional `String` title and `String` description
     public init() {
         super.init(frame: .zero)
@@ -113,7 +166,6 @@ public final class TitleAndDescriptionInfoView: UIView {
         setupViewConfiguration()
     }
 
-    @available(*, unavailable)
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -131,6 +183,7 @@ public final class TitleAndDescriptionInfoView: UIView {
 }
 
 // MARK: - ViewConfiguration
+
 extension TitleAndDescriptionInfoView: ViewConfiguration {
     public func setupConstraints() {
         stackTexts.translatesAutoresizingMaskIntoConstraints = false
@@ -223,7 +276,6 @@ protocol I18nProtocol {
 }
 
 class I18n {
-
     // MARK: - General
 
     enum General: String, I18nProtocol {
@@ -237,7 +289,7 @@ class I18n {
         /* ... */
 
         var text: String {
-            return NSLocalizedString(self.rawValue, comment: "")
+            return NSLocalizedStringiniti(self.rawValue, comment: "")
         }
 
         func text(with complement: String...) -> String {
@@ -393,7 +445,6 @@ class PirateManager {
 }
 ```
 
-  
 ## Using `guard` Statements  
 
 > When unwrapping optionals, prefer guard statements as opposed to if statements to decrease the amount of nested indentation in your code.
@@ -556,22 +607,29 @@ func myFunction() {
 * Always leave a space after `//`.
 * Always leave comments on their own line.
 * When using `// MARK: - whatever`, leave a newline after the comment.
+* When it is the first `// MARK` after the start of a class or struct, it is not necessary to have the blank line above.
+* `init()` marks must be `// MARK: - Initialization`
+* For `let` and `var` for instance use `// MARK: - Instance properties`
+* For any `view` and UIComponents use `// MARK: - Views`
 
 ```swift
 class Pirate {
-
-    // MARK: - instance properties
+    // MARK: - Instance properties
 
     private let pirateName: String
+    
+    // MARK: - Views
+    
+    let image: UIImageView
 
-    // MARK: - initialization
+    // MARK: - Initialization
 
     init() {
         /* ... */
     }
-
 }
 ```
+
 
 ## Protocol Conformance
 
