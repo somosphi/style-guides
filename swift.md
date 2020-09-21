@@ -34,7 +34,19 @@ Please do not import frameworks "just because". Try to do things natively, only 
 
 Using descriptive names makes code easier to read and understand. Use the Swift naming conventions described in the [API Design Guidelines](https://swift.org/documentation/api-design-guidelines/). Also refer to the Clean Code's chapter on naming for more examples. Remember what was said at the Comment's section and be aware that property/parameter/method names should be enough documentation. Make sure that their purpose can be fully understood purely by reading its name.
 
-# Views
+
+## Entity Naming
+
+To standardize file naming for entities
+
+- `MyEntityResponse.swift` - Used to map structures from the api
+- `MyEnityPayload.swift` - Used to map shipping structures to api
+- `MyEntity.swift` - Other mappings
+
+We agree to keep these files inside an `Entity` folder inside `Sources`
+
+
+## Views
 
 The views on the project should follow the following structure:
 
