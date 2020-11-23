@@ -59,16 +59,16 @@ For a better organization and reduction of size of methods following the linter 
 ```swift
 // MARK: - Initialization
 
-override init(frame: CGRect) {}
+override init(frame: CGRect) {
     super.init(frame: frame)
 }
 
 // MARK: - Life Cycle
 
 override func viewDidLoad() {
-	super.viewDidLoad()
+    super.viewDidLoad()
 	
-	setup()
+    setup()
 }
 
 // MARK: - Functions
