@@ -46,6 +46,57 @@ To standardize file naming for entities
 We agree to keep these files inside an `Entity` folder inside `Sources`
 
 
+## Switch Statements
+
+- Use C/Objective-C/C++ Indent
+- Leave a blank line between each case
+
+```swift
+enum Problem {
+    case attitude
+    case hair
+    case hunger(hungerLevel: Int)
+}
+
+func handleProblem(problem: Problem) {
+    switch problem {
+    case .attitude:
+        print("At least I don't have a hair problem.")
+
+    case .hair:
+        print("Your barber didn't know when to stop.")
+
+    case .hunger(let hungerLevel):
+        print("The hunger level is \(hungerLevel).")
+    }
+}
+```
+
+```swift
+
+// PREFERRED
+switch problem {
+case .attitude:
+   print("At least I don't have a hair problem.")
+
+case .hair:
+   print("Your barber didn't know when to stop.")
+
+case .hunger(let hungerLevel):
+   print("The hunger level is \(hungerLevel).")
+}
+
+// NOT PREFERRED
+switch problem {
+case .attitude:
+  print("At least I don't have a hair problem.")
+case .hair:
+  print("Your barber didn't know when to stop.")
+case .hunger(let hungerLevel):
+  print("The hunger level is \(hungerLevel).")
+}
+```
+
 ## Views
 
 The views on the project should follow the following structure:
