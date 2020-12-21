@@ -532,7 +532,7 @@ bragAboutVacation(at: monkeyIsland!)
 
 // PREFERRED
 guard let monkeyIsland = monkeyIsland,
-	  let bananaIsAvailable = bananaIsAvailable else {
+      let bananaIsAvailable = bananaIsAvailable else {
     return
 }
 
