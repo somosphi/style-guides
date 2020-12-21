@@ -527,6 +527,19 @@ if monkeyIsland == nil {
 }
 bookVacation(on: monkeyIsland!)
 bragAboutVacation(at: monkeyIsland!)
+
+// MULTI LET
+
+// PREFERRED
+guard let monkeyIsland = monkeyIsland,
+	  let bananaIsAvailable = bananaIsAvailable else {
+    return
+}
+
+// NOT PREFERRED
+guard let monkeyIsland = monkeyIsland, let bananaIsAvailable = bananaIsAvailable else {
+    return
+
 ```
 
 > Don’t use one-liners for guard statements.
