@@ -97,6 +97,19 @@ case .hunger(let hungerLevel):
 }
 ```
 
+## Line break
+Not preferred:
+
+![Not preferred](https://github.com/somosphi/style-guides/blob/master/Images/not%20preferred.png)
+
+Preferred:
+
+![Preferred](https://github.com/somosphi/style-guides/blob/master/Images/preferred.png)
+
+Xcode:
+
+![Xcode](https://github.com/somosphi/style-guides/blob/master/Images/textEditing.png)
+
 ## Views
 
 The views on the project should follow the following structure:
