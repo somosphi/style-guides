@@ -98,6 +98,13 @@ case .hunger(let hungerLevel):
 ```
 
 ## Line break
+
+Set the column value in your Xcode like the image below.
+
+![Xcode](https://github.com/somosphi/style-guides/blob/master/Images/textEditing.png)
+
+With that you can follow the column, therefore breaking the line if you pass it.
+
 Not preferred:
 
 ![Not preferred](https://github.com/somosphi/style-guides/blob/master/Images/not%20preferred.png)
@@ -106,9 +113,11 @@ Preferred:
 
 ![Preferred](https://github.com/somosphi/style-guides/blob/master/Images/preferred.png)
 
-Xcode:
+### Functions
 
-![Xcode](https://github.com/somosphi/style-guides/blob/master/Images/textEditing.png)
+In creating function arguments, we follow the rules:
+* Above 2 arguments, break the line for each one.
+* If you have 2 arguments and pass the specified column, break the line.
 
 ## Views
 
