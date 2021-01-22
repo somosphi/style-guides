@@ -117,7 +117,7 @@ Preferred:
 
 In creating function arguments, we follow the rules:
 * Above 2 arguments, break the line for each one.
-* If you have 2 arguments and pass the specified column, break the line.
+* If you have 2 arguments and pass over the specified page guide column, break the line.
 
 ## Views
 
