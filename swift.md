@@ -113,7 +113,7 @@ Preferred:
 
 ![Preferred](https://github.com/somosphi/style-guides/blob/master/Images/preferred.png)
 
-### Functions
+### Functions / Initializers
 
 In creating function arguments, we follow the rules:
 * Above 2 arguments, break the line for each one.
