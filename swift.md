@@ -115,7 +115,7 @@ Preferred:
 
 ### Functions / Initializers
 
-In creating function arguments, we follow the rules:
+In creating arguments in functions, initializers. We follow the rules:
 * Above 2 arguments, break the line for each one.
 * If you have 2 arguments and pass over the specified page guide column, break the line.
 
