@@ -30,6 +30,11 @@ Please do not import frameworks "just because". Try to do things natively, only 
 
 - Installation instructions in `README.md` file
 
+
+## Copyright Statement
+
+We do not use **Copyright Statement** in our codes, we value a cleaner file. The necessary information about creation history can be checked in our version control and in the history of commits. Therefore, the entire comment header of the file is discarded.
+
 ## Naming
 
 Using descriptive names makes code easier to read and understand. Use the Swift naming conventions described in the [API Design Guidelines](https://swift.org/documentation/api-design-guidelines/). Also refer to the Clean Code's chapter on naming for more examples. Remember what was said at the Comment's section and be aware that property/parameter/method names should be enough documentation. Make sure that their purpose can be fully understood purely by reading its name.
@@ -44,7 +49,6 @@ To standardize file naming for entities
 - `MyEntity.swift` - Other mappings
 
 We agree to keep these files inside an `Entity` folder inside `Sources`
-
 
 ## Switch Statements
 
@@ -96,6 +100,12 @@ case .hunger(let hungerLevel):
   print("The hunger level is \(hungerLevel).")
 }
 ```
+
+## Spelling and Grammar
+
+We are very fond of good writing and good code reading, we use the English language to document and name variables, methods and classes of our products. To help we keep an active spelling and grammar setting in xcode, which can be seen in the image below.
+
+![Spelling](https://github.com/somosphi/style-guides/blob/master/Images/spellingXcodeConfig.png)
 
 ## Line break
 
@@ -524,6 +534,67 @@ class PirateManager {
 }
 ```
 
+## Multi-line String Literals
+
+> When building a long string literal, you're encouraged to use the multi-line string literal syntax. Open the literal on the same line as the assignment but do not include text on that line. Indent the text block one additional level.
+
+**Preferred:**
+
+```swift
+let message = """
+  You cannot charge the flux \
+  capacitor with a 9V battery.
+  You must use a super-charger \
+  which costs 10 credits. You currently \
+  have \(credits) credits available.
+  """
+```
+
+**Not Preferred:**
+
+```swift
+let message = """You cannot charge the flux \
+  capacitor with a 9V battery.
+  You must use a super-charger \
+  which costs 10 credits. You currently \
+  have \(credits) credits available.
+  """
+Not Preferred:
+
+let message = "You cannot charge the flux " +
+  "capacitor with a 9V battery.\n" +
+  "You must use a super-charger " +
+  "which costs 10 credits. You currently " +
+  "have \(credits) credits available."
+```
+
+## Using not on `if` Statements
+
+`if	` statement with negation, for a better reading of the code avoid using `!` ahead of your condition. 
+
+```swift
+
+// PREFERRED
+if foo != false {
+	// ... do something
+} 
+
+// NOT PREFERRED
+if !foo {
+	// ... do something
+}
+
+// PREFERRED
+if bar.isEmpty != false {
+	// ... do something
+}
+
+// NOT PREFERRED
+if !bar.isEmpty {
+	// ... do something
+}
+```
+
 ## Using `guard` Statements  
 
 > When unwrapping optionals, prefer guard statements as opposed to if statements to decrease the amount of nested indentation in your code.
@@ -720,7 +791,6 @@ class Pirate {
 }
 ```
 
-
 ## Protocol Conformance
 
 In particular, when adding protocol conformance to a model or view, prefer adding a separate extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a class.
@@ -754,7 +824,6 @@ func greeting(for person: String) -> String {
 ## Unused Code
 
 Unused (dead) code should be removed. Don't worry about losing stuff, that's what Git is for :smile:
-
 
 
 ## Final
